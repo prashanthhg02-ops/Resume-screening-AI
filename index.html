@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortlist | Resume intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">S</span><span>shortlist<span class="dot">.</span></span></a>
+      <div class="topbar-meta"><span class="pulse"></span> Local AI workspace <span class="divider"></span> v1.0</div>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="kicker">Resume intelligence / 01</p>
+        <h1>Find the signal<br><em>in the stack.</em></h1>
+      </div>
+      <p class="intro-copy">Screen candidates against the role that matters. Get a ranked, explainable shortlist in seconds, with every match surfaced for review.</p>
+    </section>
+
+    <form id="screen-form">
+      <section class="workspace-grid">
+        <div class="panel job-panel">
+          <div class="panel-heading"><span class="step">01</span><div><h2>Role profile</h2><p>What are you hiring for?</p></div></div>
+          <label for="job-description">Job description</label>
+          <textarea id="job-description" name="job_description" placeholder="Paste the role description, key responsibilities, and must-have skills..." required></textarea>
+          <div class="skill-hint"><span class="hint-icon">✦</span> Tip: include the skills and experience you care about most.</div>
+        </div>
+        <div class="panel upload-panel">
+          <div class="panel-heading"><span class="step">02</span><div><h2>Candidate files</h2><p>Who is in the running?</p></div></div>
+          <label class="dropzone" id="dropzone" for="resumes"><span class="upload-icon">↑</span><strong>Drop resumes here</strong><span>or click to browse · PDF or TXT</span><input id="resumes" name="resumes" type="file" accept=".pdf,.txt" multiple required></label>
+          <div id="file-list" class="file-list"></div>
+        </div>
+      </section>
+      <div class="action-row"><span class="privacy"><span class="lock">⌑</span> Files are processed locally and never leave your workspace.</span><button id="submit-button" type="submit">Screen candidates <span>→</span></button></div>
+    </form>
+
+    <section id="results-section" class="results-section hidden">
+      <div class="results-header"><div><p class="kicker">Screening report / 02</p><h2>Your shortlist</h2></div><div class="report-meta"><span id="result-count">0 candidates</span><span class="divider"></span><span id="report-time">Just now</span></div></div>
+      <div class="summary-strip"><div><span class="summary-number" id="top-score">—</span><span class="summary-label">top match</span></div><div><span class="summary-number" id="strong-count">—</span><span class="summary-label">strong matches</span></div><div class="summary-note">Scores combine semantic similarity with the role’s explicitly requested skills.</div></div>
+      <div id="results-list" class="results-list"></div>
+    </section>
+    <footer><span>SHORTLIST / AI-ASSISTED HIRING</span><span>Built for thoughtful teams</span></footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
